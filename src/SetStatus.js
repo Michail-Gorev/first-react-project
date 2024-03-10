@@ -15,6 +15,7 @@ const Status = () => {
     };
     const clearStatus = () => {
         setStatusText('');
+        setInputText('');
     };
 
     return (
