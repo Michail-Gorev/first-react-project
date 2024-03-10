@@ -1,3 +1,4 @@
+import Status from "./SetStatus";
 const UserProfile = ({user, pics}) => {
     var day = user.favourite_pic
     return (
@@ -44,6 +45,12 @@ const UserProfile = ({user, pics}) => {
                                                 <div className="col-sm-6">
                                                     <p className="m-b-10 f-w-600">За сегодня отправлено картинок</p>
                                                     <h6 className="text-muted f-w-400">{user.sent_pics_for_today}</h6>
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-sm-6">
+                                                    <p className="m-b-10 f-w-600">Статус</p>
+                                                    <Status/>
                                                 </div>
                                             </div>
                                             <ul className="social-link list-unstyled m-t-40 m-b-10">

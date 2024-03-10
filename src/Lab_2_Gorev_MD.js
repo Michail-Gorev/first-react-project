@@ -1,8 +1,6 @@
 import React from 'react';
 import PicForDay from './PicForDay';
 import UserProfile from './UserProfile';
-import Button from "react-bootstrap/Button";
-
 
 const Greeting = () => {
     const pics = [
