@@ -26,7 +26,6 @@
 import React from 'react'
 import './App.css'
 import Greeting from './Lab_2_Gorev_MD'
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
