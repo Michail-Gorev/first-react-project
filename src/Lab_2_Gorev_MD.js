@@ -1,9 +1,8 @@
 import React from 'react';
 import PicForDay from './PicForDay';
 import UserProfile from './UserProfile';
-import Button from "react-bootstrap/Button";
-import ListPictures from "./AllPics";
 import AllPics from "./AllPics";
+import GetMeals from "./GetMeals";
 
 
 const Greeting = () => {
@@ -36,6 +35,7 @@ const Greeting = () => {
                 <PicForDay pics = {pics}/>
                 <UserProfile user = {user} pics = {pics}/>
                 <AllPics/>
+                <GetMeals/>
         </>
     );
 };
