@@ -29,13 +29,7 @@ const Greeting = () => {
     }
     return(
         <>
-            <div id="buttons">
-                <button type='button' className={'btn btn-danger'} onClick={getNormalGreeting}>Tap for normal hello</button>
-            </div>
-                <PicForDay pics = {pics}/>
-                <UserProfile user = {user} pics = {pics}/>
-                <AllPics/>
-                <GetMeals/>
+            <GetMeals/>
         </>
     );
 };

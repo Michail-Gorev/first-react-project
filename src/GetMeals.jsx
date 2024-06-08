@@ -22,6 +22,7 @@ const BASE_URL = 'https://api.spoonacular.com/recipes/complexSearch?'
 function GetMeals() {
     const[filterCuisine, setFilterCuisine] = useLocalStorage('', 'filterCuisine');
     const[filterEquipment, setFilterEquipment] = useLocalStorage('', 'filterEquipment');
+    const[filterCalories, setFilterCalories] = useLocalStorage('','filterCalories')
     const[meals, setMeals] = useState([])
 
     const filterCuisineChange = (event) => {
@@ -30,13 +31,16 @@ function GetMeals() {
     const filterEquipmentChange = (event) => {
         setFilterEquipment(event.target.value)
     }
+    const filterCaloriesChange = (event) => {
+        setFilterCalories(event.target.value)
+    }
     function refreshPage(){
         window.location.reload();
     }
     useEffect(() => {
         const fetchData = async () => {
             const resp = await fetch(BASE_URL + "cuisine=" + filterCuisine
-                    + "&equipment=" + filterEquipment + "&apiKey=" + API_KEY)
+                    + "&equipment=" + filterEquipment + "&maxCalories=" + filterCalories + "&apiKey=" + API_KEY)
             const jsonData = await resp.json();
             setMeals(jsonData.results);
         }
@@ -74,6 +78,13 @@ function GetMeals() {
                             </Form.Select>
                         </Col>
                         <Col>
+                            <Form.Label htmlFor={'cuisine'}>
+                                Макс. калории:
+                            </Form.Label>
+                            <Form.Control type={'text'} onChange={filterCaloriesChange}>
+                            </Form.Control>
+                        </Col>
+                        <Col>
                             <Button type={"submit"} onClick={refreshPage} className={"btn btn-success"}>Отобразить!</Button>
                         </Col>
                     </Row>
@@ -89,9 +100,6 @@ function GetMeals() {
                                 <CardTitle>
                                     {item.title}
                                 </CardTitle>
-                                <ListGroup>
-                                    <ListGroupItem>{item.author}</ListGroupItem>
-                                </ListGroup>
                             </CardBody>
                         </Card>
                     </Col>
